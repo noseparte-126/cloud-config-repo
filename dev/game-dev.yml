@@ -1,0 +1,41 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: famous-game
+      username:
+      password:
+
+  cloud:
+    config:
+      name: login
+      profile: dev
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: Almost-Famous-Config
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    #5秒一次心跳
+    lease-renewal-interval-in-seconds: 5
+    #告知注册中心30秒未收到心跳则移除服务
+    lease-expiration-duration-in-seconds: 10
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+#redisson
+redis:
+  redisson:
+    config: classpath:redisson-game-dev.yaml

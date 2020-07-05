@@ -1,0 +1,30 @@
+spring:
+  redis:
+    redisson:
+      config: file:../resources/redisson-prod.yaml
+
+match:
+  host: localhost
+  port: 9876
+
+  threadCount: 10
+  adminUrl: http://localhost:9080/admin/dispatch/a
+  verifyUserLoginCmd: 20001
+  gameCoreUrl: http://localhost:9090/gamecore/dispatch/a
+  pullActorCmd: 20003
+  consulServcies: http://localhost:8500/v1/agent/services
+  consulRegistry: http://localhost:8500/v1/agent/services
+  matcher: 2
+  lifecycle: 8
+  heartBeatTime: 30
+  matchMaxWaitTime: 30
+  leisureMatchRange: 5
+  rankMatchRange: 0
+  matchRobotTime: 10
+
+  consul: http://localhost:8500/
+
+#RPC
+rpc:
+  host: localhost
+  port: 10000

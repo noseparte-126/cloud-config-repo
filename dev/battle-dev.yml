@@ -1,0 +1,31 @@
+spring:
+  redis:
+    redisson:
+      config: classpath:redisson-dev.yaml
+
+quartz:
+    config: classpath:quartz.properties
+
+battle:
+  serverId: 1
+  host: 192.168.101.223
+  port: 10001
+
+  threadCount: 10
+
+  gameCoreUrl: http://localhost:9090/gamecore/dispatch/a
+  battleStartCmd: 20005
+  battleEndCmd: 20007
+
+  matcher: 2
+  frameSpeed: 4
+  lifecycle: 9
+  redundancy: 2
+
+  otherActorBattleResult: 3000
+  heartBeatTime: 30
+
+#RPC
+rpc:
+  host: 192.168.101.223
+  port: 10000
